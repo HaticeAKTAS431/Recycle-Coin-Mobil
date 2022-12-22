@@ -9,8 +9,8 @@ const WelcomeScreen=(props) => {
         <Image  style={styles.logo} source={require("./assets/logo.png")}></Image>
         <Text style={styles.text_Title}>Welcome.</Text>
         <Text style={styles.text_Body}>Get started logging into your account.</Text>
-        <Btn bgColor={buttonColor2} textColor="white" btnLabel="Giriş Yap" Press={() => props.navigation.navigate("Login")}/>
-        <Btn bgColor="white" textColor={buttonColor2} btnLabel="Kayıt Ol" Press={() =>props.navigation.navigate("SignUp")}/>
+        <Btn bgColor={buttonColor2} textColor="white" btnLabel="Login " Press={() => props.navigation.navigate("Login")}/>
+        <Btn bgColor="white" textColor={buttonColor2} btnLabel="Sign Up" Press={() =>props.navigation.navigate("SignUp")}/>
        </View>
     );
 }
