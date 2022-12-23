@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
  
-
+//db den gelen rcycle değerleri yazılacak
 const Home_Screen = () => {
   return (
     <SafeAreaView style={styles.root}>

@@ -25,8 +25,10 @@ const ForgotPassword_Screen = (props) => {
                 placeholder='E-mail...'
                 value={values.email}
                 onChangeText={handleChange('email')}/>
-              <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Send Mail" />
-              <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Back" Press={() => props.navigation.navigate("Login")} />
+              <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Send Mail"
+               Press={() => props.navigation.navigate("ResetPassword")} />
+              <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Back"
+               Press={() => props.navigation.navigate("Login")} />
               </SafeAreaView>}
               </Formik>
       </View>
