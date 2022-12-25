@@ -13,7 +13,7 @@ export default function Btn({bgColor, textColor, btnLabel, Press}) {
         height:'6%',
         width:320,
         height:60,
-        marginTop:20,
+        marginTop:10,
     }}>
         <Text
         style={{       

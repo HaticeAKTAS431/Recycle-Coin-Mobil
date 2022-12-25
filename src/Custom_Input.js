@@ -22,7 +22,7 @@ const Custom_Input = ({ placeholder}) => {
     paddingHorizontal:10,//e posta yazısının iç uzaklığını ayarlar
     paddingVertical:8,
     fontSize:15,
-    marginVertical:10,    
+    marginVertical:5,    
   },
   inputStyle:{
     width:300,

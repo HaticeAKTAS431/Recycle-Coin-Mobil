@@ -26,7 +26,7 @@ const ForgotPassword_Screen = (props) => {
                 value={values.email}
                 onChangeText={handleChange('email')}/>
               <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Send Mail"
-               Press={() => props.navigation.navigate("ResetPassword")} />
+               Press={() => props.navigation.navigate("Verification")} />
               <Btn bgColor={buttonColor2} onPress={handleSubmit} textColor={buttonColor3} btnLabel="Back"
                Press={() => props.navigation.navigate("Login")} />
               </SafeAreaView>}
@@ -43,15 +43,15 @@ const styles=StyleSheet.create({
     alignItems:'center'
   },
   logo:{
-    marginTop:50,
+    marginTop:30,
     marginRight:30,
   },
   container: {
     alignItems:'center',
     backgroundColor: "white",
-    height: '70%',
+    height: '80%',
     width: '100%',
-    marginTop: '15%',
+    marginTop: '10%',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     borderTopLeftRadius: 30,

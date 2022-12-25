@@ -13,8 +13,8 @@ const SignUp_Screen = (props) => {
       <View style={styles.root} >
        <Image  style={styles.logo} source={require("./assets/logo.png")}></Image>
        <View style={styles.container}>
-        <Text style={{fontWeight:'bold', fontSize:30, color:'green' ,marginTop:20}}>WELCOME </Text>
-        <Formik initialValues={{ name:'', surname:'', email:'', phonenumber:'', password:''}}
+       <Text style={{fontWeight:'bold', fontSize:30, color:'green' }}>WELCOME </Text>
+        <Formik initialValues={{ name:'', surname:'', TC:'', DateBirthday:'',  phonenumber:'', email:'',  password:''}}
             onSubmit={(values) => {
               console.log(values);
             }}
@@ -32,10 +32,16 @@ const SignUp_Screen = (props) => {
                 onChangeText={handleChange('surname')}
               />
               <Input style={styles.input}
-                placeholder='E-mail...'
-                value={values.email}
-                onChangeText={handleChange('email')}
-                keyboardType='email-address'
+                placeholder='TC No...'
+                value={values.TC}
+                onChangeText={handleChange('TC')}
+                keyboardType='phone-pad'
+              />
+              <Input style={styles.input}
+                placeholder='Birthday Date...'
+                value={values.DateBirthday}
+                onChangeText={handleChange('DateBirthday')}
+                keyboardType='birthdate-full'
               />
               <Input style={styles.input}
                 placeholder='Phonenumber...'
@@ -43,6 +49,13 @@ const SignUp_Screen = (props) => {
                 onChangeText={handleChange('phonenumber')}
                 keyboardType='phone-pad'
               />
+              <Input style={styles.input}
+                placeholder='E-mail...'
+                value={values.email}
+                onChangeText={handleChange('email')}
+                keyboardType='email-address'
+              />
+              
                  <Input style={styles.input}
                 placeholder='Password...'
                 value={values.password}
@@ -69,14 +82,14 @@ const styles=StyleSheet.create({
     alignItems:'center'
   },
   logo:{
-    marginTop:50,
+    marginTop:30,
     marginRight:30,
   },
   container: {
     backgroundColor: "white",
-    height: '70%',
+    height: '80%',
     width: '100%',
-    marginTop: '15%',
+    marginTop: '7%',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     borderTopLeftRadius: 30,
@@ -88,7 +101,6 @@ const styles=StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-    marginTop: 12,
     borderColor: 'grey',
   },
 })

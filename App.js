@@ -9,7 +9,7 @@ import SignUp from './src/SignUp_Screen';
 import Home from './src/Home_Screen';
 import ForgotPassword from './src/ForgotPassword_Screen';
 import DrawerMenu from './src/Drawer_Menu';
-import ResetPassword from './src/ResetPassword_Screen';
+import Verification  from './src/Verification_Screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +23,7 @@ function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="DrawerMenu" component={DrawerMenu} />
-        <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="Verification" component={Verification} />
       </Stack.Navigator>
     </NavigationContainer>
   );
