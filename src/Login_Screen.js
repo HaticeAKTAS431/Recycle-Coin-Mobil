@@ -12,6 +12,7 @@ import Btn from "./Btn";
 import { buttonColor2, buttonColor3 } from "./constants";
 import { Formik } from "formik";
 import Input from "./Custom_Input";
+import { Request, CurrentService } from "./utils";
 
 const Login_Screen = (props) => {
   return (
@@ -31,20 +32,30 @@ const Login_Screen = (props) => {
           <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values) => {
-              console.log(values)
+              try {
+                const response = await Request.requestAsync({
+                  method: "POST",
+                  path: "/login",
+                  data: values,
+                });
+                if (response) {
+                  await CurrentService.setTokenAsync(response.token);
+                  props.navigation.navigate("DrawerMenu");
+                }
+              } catch (err) {
+                console.log({ err: err.message });
+              }
             }}
           >
             {({ handleChange, handleSubmit, values }) => (
               <SafeAreaView>
                 <Input
-                  style={styles.input}
                   placeholder="E-mail..."
                   value={values.email}
                   onChangeText={handleChange("email")}
                   keyboardType="email-address"
                 />
                 <Input
-                  style={styles.input}
                   placeholder="Password..."
                   value={values.password}
                   onChangeText={handleChange("password")}
