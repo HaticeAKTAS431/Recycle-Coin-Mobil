@@ -1,18 +1,35 @@
-import { View, Text, StyleSheet, ToastAndroid } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Request } from "./utils";
+import { useIsFocused } from "@react-navigation/native";
 
 const Home_Screen = () => {
   const [user, setUser] = useState({});
+  const [transferHistory, setTransferHistory] = useState([]);
+  const isFocused = useIsFocused();
+
+  const getUser = async () => {
+    const response = await Request.requestAsync({
+      method: "GET",
+      path: "/info",
+    });
+    setUser(response);
+  };
+
+  const getTransferHistory = async () => {
+    const response = await Request.requestAsync({
+      method: "GET",
+      path: "/money-transfer",
+      params: { limit: 3 },
+    });
+    setTransferHistory(response);
+  };
 
   const init = async () => {
     try {
-      const response = await Request.requestAsync({
-        method: "GET",
-        path: "/info",
-      });
-      setUser(response);
+      await getUser();
+      await getTransferHistory();
     } catch (err) {
       console.log({ err });
     }
@@ -20,32 +37,36 @@ const Home_Screen = () => {
 
   useEffect(() => {
     init();
-  }, []);
+  }, [isFocused]);
 
   return (
     <SafeAreaView style={styles.root}>
       <View style={styles.container}>
-        <Text style={{ marginVertical: 50, fontSize: 35, fontWeight: "bold" }}>
-          {user.balance}
+        <Text style={{ marginVertical: 45, fontSize: 50, fontWeight: "bold" }}>
+          {user.balance} C
         </Text>
       </View>
       <View style={styles.container1}>
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 30,
             fontWeight: "bold",
-            marginHorizontal: 20,
+            marginHorizontal: 50,
             marginTop: 10,
           }}
         >
           SHA-256 Address
         </Text>
-        <Text>address</Text>
+        <Text style={{ padding: 10, fontSize: 20 }}>{user.hash}</Text>
       </View>
       <View style={styles.container2}>
-        <Text style={{ fontSize: 20, marginTop: 10 }}> geçmiş 1</Text>
-        <Text style={{ fontSize: 20, marginTop: 10 }}> geçmiş 1</Text>
-        <Text style={{ fontSize: 20, marginTop: 10 }}> geçmiş 1</Text>
+        {transferHistory.map((histroy) => {
+          return (
+            <Text key={histroy.id} style={{ fontSize: 20, marginTop: 10 }}>
+              {histroy.senderFirstName}
+            </Text>
+          );
+        })}
       </View>
     </SafeAreaView>
   );

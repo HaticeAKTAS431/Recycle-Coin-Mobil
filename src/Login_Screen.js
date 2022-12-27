@@ -26,7 +26,7 @@ const Login_Screen = (props) => {
           <Text style={{ fontWeight: "bold", fontSize: 30, color: "black" }}>
             WELCOME BACK{" "}
           </Text>
-          <Text style={{ fontSize: 20, color: "green" }}>
+          <Text style={{ fontSize: 20, color: "black" }}>
             Login to your account{" "}
           </Text>
           <Formik
@@ -80,7 +80,7 @@ const Login_Screen = (props) => {
                 <Btn
                   style={styles.btn}
                   bgColor={buttonColor2}
-                  textColor={buttonColor3}
+                  textColor="white"
                   btnLabel="Login"
                   Press={handleSubmit}
                 />

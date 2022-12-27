@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import Btn from "./Btn";
-import { buttonColor2 } from "./constants";
+import { buttonColor2, buttonColor1 } from "./constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CurrentService } from "./utils";
 
@@ -20,8 +20,8 @@ const WelcomeScreen = (props) => {
         Get started logging into your account.
       </Text>
       <Btn
-        bgColor={buttonColor2}
-        textColor="white"
+        bgColor="white"
+        textColor={buttonColor2}
         btnLabel="Login "
         Press={() => props.navigation.navigate("Login")}
       />

@@ -1,10 +1,10 @@
 import { ToastAndroid } from "react-native";
 import Axios from "axios";
 import { CurrentService } from "./current_service";
-Axios.defaults.baseURL = "http://192.168.1.131:5000";
+Axios.defaults.baseURL = "http://10.138.135.252:5000";
 
 export class Request {
-  static async requestAsync({ method, path, data }) {
+  static async requestAsync({ method, path, data, params }) {
     try {
       const token = await CurrentService.getTokenAsync();
       const response = await Axios.request({
@@ -12,6 +12,7 @@ export class Request {
         method,
         url: path,
         data,
+        params,
       });
       return response.data;
     } catch (err) {
@@ -20,10 +21,10 @@ export class Request {
   }
 
   static getMessage(err) {
-    if (err.response.status == 417)
+    if (err?.response?.status == 417)
       return "Make sure you have entered the data correctly.";
-    else if (err.response.status == 500)
-      return "There was a server error, please try again later";
-    else return err.response.data;
+    else if (err?.response?.status >= 400 && err?.response?.status < 500)
+      return err.response.data;
+    else return "There was a server error, please try again later";
   }
 }
