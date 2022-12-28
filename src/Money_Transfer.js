@@ -97,7 +97,7 @@ const Money_Transfer = () => {
                 style={{ marginTop: 20 }}
                 bgColor={buttonColor2}
                 Press={handleSubmit}
-                textColor={buttonColor3}
+                textColor="white"
                 btnLabel="Send Coin"
               />
             </SafeAreaView>

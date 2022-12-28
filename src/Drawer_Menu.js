@@ -19,7 +19,7 @@ export default function App() {
         <Drawer.Screen name="Profile" component={Profile} />
         <Drawer.Screen name="Money Transfer" component={Money_Transfer} />
         <Drawer.Screen name="Qr" component={Qr} />
-        <Drawer.Screen name="SSS" component={SSS} />
+        <Drawer.Screen name="Recycle" component={SSS} />
         <Drawer.Screen name="Logout" component={Logout} />
       </Drawer.Navigator>
     </NavigationContainer>
